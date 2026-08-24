@@ -822,4 +822,43 @@ h1, h2, h3, blockquote { line-height: var(--line-heading); text-wrap: balance; w
   .representative-home-copy { padding: 40px 24px; }
 }
 
+@media (min-width: 1320px) {
+  :root {
+    --content-wide: 1320px;
+    --visual-wide: 1400px;
+    --desktop-gutter: 24px;
+  }
+
+  .section-shell,
+  .header-inner,
+  .home-hero,
+  .page-hero,
+  .case-band,
+  .contact-layout,
+  .cta-section {
+    width: min(var(--content-wide), calc(100% - 48px));
+  }
+
+  .home-hero,
+  .page-hero { width: min(var(--visual-wide), calc(100% - 48px)); }
+
+  .representative-home,
+  .representative-hero { grid-template-columns: minmax(0, 42fr) minmax(0, 58fr); }
+
+  .representative-hero { gap: 0; }
+  .representative-hero-copy { padding-left: clamp(48px, 5vw, 72px); }
+
+  .representative-home {
+    background: linear-gradient(90deg, #d3d4d6 0 42%, #fff1e8 42%, #fffaf5 100%);
+  }
+
+  .representative-home-photo img,
+  .representative-hero-photo img {
+    object-fit: cover;
+    object-position: center top;
+  }
+
+  .career-timeline { max-width: none; }
+}
+
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; } }
