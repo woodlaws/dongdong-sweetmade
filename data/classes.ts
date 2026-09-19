@@ -73,7 +73,7 @@ export const classes: ClassItem[] = [
     category: "견과·스프",
     status: "상시상담",
     summary: "견과 메뉴를 판매 상품으로 활용하려는 분을 위한 실전 과정입니다.",
-    image: "https://images.unsplash.com/photo-1536591375667-9c3c96e26f7f?auto=format&fit=crop&w=1200&q=86",
+    image: "https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1200&q=86",
     time: "10:00~16:30",
     price: "800,000원",
     priceAmount: 800000,
