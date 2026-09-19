@@ -920,7 +920,12 @@ h1, h2, h3, blockquote { line-height: var(--line-heading); text-wrap: balance; w
 
 @media (max-width: 600px) {
   .review-page-heading { padding: 58px 0 32px; }
-  .review-page-heading h1 { font-size: 2.35rem; }
+  .review-page-heading h1 {
+    max-width: 100%;
+    font-size: clamp(2rem, 9vw, 2.35rem);
+    line-height: 1.22;
+    text-wrap: wrap;
+  }
   .review-page-gallery { padding-bottom: 72px; }
   .related-review-section { padding-bottom: 64px; }
   .kakao-review-grid { grid-template-columns: 1fr; gap: 24px; }
