@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { ArrowRight, BadgeCheck, CalendarDays, Check, Clock3, MapPin, MessageCircle, PackageCheck, Sparkles, WalletCards } from "lucide-react";
+import { ArrowRight, BadgeCheck, CalendarDays, Check, Clock3, MapPin, PackageCheck, Phone, Sparkles, WalletCards } from "lucide-react";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { ClassCard } from "@/components/ClassCard";
 import { CTASection } from "@/components/CTASection";
@@ -52,7 +52,7 @@ export default async function ClassDetailPage({ params }: Props) {
       <Breadcrumbs items={[{ label: "클래스", href: "/classes" }, { label: item.title }]} />
       <section className="class-detail-hero section-shell">
         <div className="detail-image"><SmartImage src={item.image} alt={`${item.title} 대표 이미지`} priority /></div>
-        <div className="detail-summary"><span className={`status-badge status-${item.status}`}>{item.status}</span><p className="category-label">{item.category}</p><h1>{item.title}</h1><p>{item.summary}</p><ul className="detail-facts"><li><CalendarDays />{item.format}</li><li><Clock3 />{item.duration}</li><li><WalletCards />{item.price}</li><li><MapPin />{item.location}</li></ul><div className="hero-actions"><a className="button button-primary" href="/contact">클래스 신청 <ArrowRight size={17} /></a><a className="button button-secondary" href={siteConfig.kakaoUrl} target="_blank" rel="noreferrer"><MessageCircle size={17} />카카오톡 문의</a></div></div>
+        <div className="detail-summary"><span className={`status-badge status-${item.status}`}>{item.status}</span><p className="category-label">{item.category}</p><h1>{item.title}</h1><p>{item.summary}</p><ul className="detail-facts"><li><CalendarDays />{item.format}</li><li><Clock3 />{item.duration}</li><li><WalletCards />{item.price}</li><li><MapPin />{item.location}</li></ul><div className="hero-actions"><a className="button button-primary" href="/contact">클래스 신청 <ArrowRight size={17} /></a><a className="button button-secondary" href={siteConfig.consultation.href}><Phone size={17} />{siteConfig.consultation.label}</a></div></div>
       </section>
 
       <section className="soft-section section-space"><div className="section-shell two-column-info"><article><Sparkles /><h2>이런 분께 추천합니다</h2><ul>{item.recommendedFor.map((text) => <li key={text}><Check />{text}</li>)}</ul></article><article><BadgeCheck /><h2>수강 후 기대할 수 있어요</h2><ul>{item.outcomes.map((text) => <li key={text}><Check />{text}</li>)}</ul></article></div></section>

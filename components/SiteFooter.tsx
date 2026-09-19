@@ -1,4 +1,4 @@
-import { Instagram, MessageCircle } from "lucide-react";
+import { Instagram, Phone } from "lucide-react";
 import { representative } from "@/data/representative";
 import { siteConfig } from "@/data/site";
 
@@ -12,7 +12,7 @@ export function SiteFooter() {
           <div className="social-links">
             <a href={siteConfig.blogUrl} target="_blank" rel="noreferrer">N 네이버 블로그</a>
             <a href={siteConfig.instagramUrl} target="_blank" rel="noreferrer"><Instagram size={16} /> 인스타그램</a>
-            <a href={siteConfig.kakaoUrl} target="_blank" rel="noreferrer"><MessageCircle size={16} /> 카카오톡</a>
+            <a href={siteConfig.consultation.href}><Phone size={16} /> {siteConfig.consultation.shortLabel}</a>
           </div>
         </div>
         <div>

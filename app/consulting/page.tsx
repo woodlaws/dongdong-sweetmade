@@ -55,7 +55,7 @@ export default function ConsultingPage() {
 
       <section className="section-shell section-space faq-section"><SectionIntro eyebrow="FAQ" title="자주 묻는 질문" />{consultingFaqs.map((faq) => <details key={faq.question}><summary>{faq.question}</summary><p>{faq.answer}</p></details>)}</section>
       <CTASection title="지금 상황부터 편하게 알려주세요" description="필요한 컨설팅 범위와 다음 단계를 차분히 안내해 드립니다." />
-      <a className="sr-only" href={siteConfig.kakaoUrl}>카카오톡 상담</a>
+      <a className="sr-only" href={siteConfig.consultation.href}>{siteConfig.consultation.label}</a>
     </main>
   );
 }

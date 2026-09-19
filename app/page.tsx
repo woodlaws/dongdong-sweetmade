@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { ArrowRight, BadgeCheck, Building2, Coffee, MessageCircle, Sprout, Star, Store, UsersRound } from "lucide-react";
+import { ArrowRight, BadgeCheck, Coffee, Phone, Sprout, Star, Store, UsersRound } from "lucide-react";
 import { ClassCard } from "@/components/ClassCard";
 import { CTASection } from "@/components/CTASection";
 import { SectionIntro } from "@/components/SectionIntro";
@@ -19,11 +19,11 @@ const services = [
 ];
 
 const sketches = [
-  ["수제청 창업반 실습 현장", "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=700&q=82"],
-  ["브런치 메뉴 실습", "https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=700&q=82"],
-  ["앙금플라워 케이크 실습", "https://images.unsplash.com/photo-1579372786545-d24232daf58c?auto=format&fit=crop&w=700&q=82"],
-  ["음료 클래스 실습", "https://images.unsplash.com/photo-1544145945-f90425340c7e?auto=format&fit=crop&w=700&q=82"],
-  ["창업 컨설팅 특강", "https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=700&q=82"],
+  ["수제청과 과일 음료", "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=700&q=82"],
+  ["브런치 메뉴 구성", "https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=700&q=82"],
+  ["케이크와 디저트", "https://images.unsplash.com/photo-1579372786545-d24232daf58c?auto=format&fit=crop&w=700&q=82"],
+  ["카페 음료 메뉴", "https://images.unsplash.com/photo-1544145945-f90425340c7e?auto=format&fit=crop&w=700&q=82"],
+  ["메뉴 개발 아이디어", "https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=700&q=82"],
 ];
 
 export default function HomePage() {
@@ -64,11 +64,11 @@ export default function HomePage() {
         <div className="representative-home-copy">
           <p className="mini-label">10 YEARS OF EXPERIENCE</p>
           <h2>10년의 현장 경험으로<br />카페 창업의 시작을 함께합니다</h2>
-          <p className="representative-name"><strong>{representative.name.value} 대표</strong><span>{representative.title.value}</span><small>넥스플랜 · 세부 소속 및 직책 확인 중</small></p>
+          <p className="representative-name"><strong>{representative.name.value} 대표</strong><span>{representative.title.value}</span></p>
           <p>{representative.introduction.value}</p>
           <div className="representative-highlights">
             {representative.careerHighlights.slice(0, 3).map((item) => <span key={item.value}><BadgeCheck />{item.value}</span>)}
-            <span><Building2 />30억 원 규모 지원사업 성공 경험</span>
+            <span><BadgeCheck />정부·기관 지원사업 수행 경험</span>
           </div>
           <blockquote>“배운 메뉴가 실제 상품이 되고,<br />자신만의 사업으로 이어질 때까지 함께하겠습니다.”</blockquote>
           <div className="representative-actions"><a className="button button-primary" href="/about">윤인동 대표 소개 <ArrowRight size={17} /></a><a className="button button-secondary" href="/contact">창업 상담 신청 <ArrowRight size={17} /></a></div>
@@ -92,17 +92,17 @@ export default function HomePage() {
       </section>
 
       <section className="section-shell section-space">
-        <SectionIntro eyebrow="CLASS SKETCH" title="최근 클래스 스케치" />
+        <SectionIntro eyebrow="CLASS MENU" title="클래스에서 배우는 메뉴" description="메뉴 이해를 돕는 스톡 참고 이미지입니다. 실제 수업 현장 또는 수강생 작품 사진이 아닙니다." />
         <div className="sketch-grid">
-          {sketches.map(([title, image]) => <figure key={title}><div><SmartImage src={image} alt={title} /></div><figcaption>{title}</figcaption></figure>)}
+          {sketches.map(([title, image]) => <figure key={title}><div><SmartImage src={image} alt={`${title} 참고 이미지`} /></div><figcaption>{title} · 참고 이미지</figcaption></figure>)}
         </div>
       </section>
 
       <CTASection />
 
       <section className="quick-funnel section-shell" aria-label="상담 빠른 안내">
-        <div><Store /><span>창업 목표를 알려주세요</span></div><ArrowRight /><div><Sprout /><span>맞춤 과정을 제안해요</span></div><ArrowRight /><div><MessageCircle /><span>카카오톡으로 상담해요</span></div>
-        <a href={siteConfig.kakaoUrl} target="_blank" rel="noreferrer" className="sr-only">카카오톡 상담</a>
+        <div><Store /><span>창업 목표를 알려주세요</span></div><ArrowRight /><div><Sprout /><span>맞춤 과정을 제안해요</span></div><ArrowRight /><div><Phone /><span>전화로 상담해요</span></div>
+        <a href={siteConfig.consultation.href} className="sr-only">{siteConfig.consultation.label}</a>
       </section>
     </main>
   );

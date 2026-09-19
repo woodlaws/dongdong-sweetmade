@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { ArrowRight, CalendarDays, ChevronLeft, ChevronRight, Clock3, MapPin, MessageCircle, X } from "lucide-react";
+import { ArrowRight, CalendarDays, ChevronLeft, ChevronRight, Clock3, MapPin, Phone, X } from "lucide-react";
 import { classSchedule, parseScheduleDate, scheduleCategories, scheduleMonths, type ClassScheduleItem, type ScheduleCategory } from "@/data/class-schedule";
 import { classCategories } from "@/data/classes";
 import { siteConfig } from "@/data/site";
@@ -175,7 +175,7 @@ export function ClassScheduleExplorer() {
 
         <div className="schedule-contact-cta">
           <div><h3>원하는 수업 날짜가 없으신가요?</h3><p>희망 과정과 가능한 날짜를 남겨주시면 일정을 안내해드립니다.</p></div>
-          <div><a className="button button-primary" href="/contact?type=클래스%20일정%20문의">희망 일정 문의하기 <ArrowRight size={17} /></a><a className="button button-kakao" href={siteConfig.kakaoUrl} target="_blank" rel="noreferrer"><MessageCircle size={17} />카카오톡으로 문의하기</a></div>
+          <div><a className="button button-primary" href="/contact?type=클래스%20일정%20문의">희망 일정 문의하기 <ArrowRight size={17} /></a><a className="button button-kakao" href={siteConfig.consultation.href}><Phone size={17} />{siteConfig.consultation.label}</a></div>
         </div>
       </section>
 

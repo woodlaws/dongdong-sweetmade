@@ -1,14 +1,21 @@
 import { representative } from "@/data/representative";
 
+const phone = representative.contact.phone.value;
+const phoneHref = `tel:${phone.replaceAll("-", "")}`;
+
 export const siteConfig = {
   name: "동동이 스윗메이드",
   shortName: "동동이 스윗메이드",
   description: "수제청·음료, 브런치·디저트, 앙금플라워부터 카페 창업까지 실전에 연결되는 교육 브랜드",
-  url: "https://dongdong-sweetmade.geosangbruce.chatgpt.site",
-  kakaoUrl: "https://pf.kakao.com/",
+  url: "https://dongdong-sweetmade.vercel.app",
   blogUrl: "https://blog.naver.com/idong22",
   instagramUrl: "https://www.instagram.com/dongdongesweetmade/",
-  phone: representative.contact.phone.value,
+  phone,
+  consultation: {
+    label: "전화 상담하기",
+    shortLabel: "전화 상담",
+    href: phoneHref,
+  },
   email: "추후 입력",
   address: representative.contact.address.value,
   businessHours: representative.contact.businessHours.value,

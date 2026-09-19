@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { CalendarDays, MessageCircle } from "lucide-react";
+import { CalendarDays, Phone } from "lucide-react";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { JsonLd } from "@/components/JsonLd";
@@ -51,7 +51,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <SiteFooter />
         <nav className="mobile-bottom-cta" aria-label="빠른 상담">
           <a href="/classes"><CalendarDays size={18} />클래스 일정</a>
-          <a href={siteConfig.kakaoUrl} target="_blank" rel="noreferrer"><MessageCircle size={18} />카카오톡 문의</a>
+          <a href={siteConfig.consultation.href}><Phone size={18} />{siteConfig.consultation.shortLabel}</a>
         </nav>
       </body>
     </html>
