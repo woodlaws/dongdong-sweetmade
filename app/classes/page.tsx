@@ -17,7 +17,7 @@ export default function ClassesPage() {
   return (
     <main>
       <Breadcrumbs items={[{ label: "클래스" }]} />
-      <PageHero eyebrow="CLASS PROGRAM" title="배움이 바로 실전이 되는 클래스" description="대표 클래스의 수강료와 수업 시간을 확인하고, 구체적인 일정은 문의해 주세요." image="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=1400&q=86" imageAlt="다양한 수제 과일 음료 참고 이미지" />
+      <PageHero eyebrow="CLASS PROGRAM" title="배움이 바로 실전이 되는 클래스" description="대표 클래스의 수강료와 수업 시간을 확인하고, 구체적인 일정은 문의해 주세요." image="/images/classes/042-lunchbox-feast-wide.webp" imageAlt="샌드위치와 샐러드, 브런치를 함께 담은 테이블" />
       <section className="section-shell section-space">
         <SectionIntro eyebrow="CLASS LIST" title="대표 클래스와 메뉴 수업" description="모집 일정은 정해지는 대로 안내합니다. 원하는 수업을 선택해 상세 정보와 상담 방법을 확인해 주세요." />
         <ClassesExplorer />

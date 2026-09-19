@@ -29,6 +29,7 @@ export function SmartImage({ src, alt, className, priority, sizes = "(max-width:
       alt={alt}
       fill
       priority={priority}
+      loading={priority ? "eager" : undefined}
       sizes={sizes}
       className={className}
       onError={() => setFailed(true)}

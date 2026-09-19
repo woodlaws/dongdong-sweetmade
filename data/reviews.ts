@@ -6,18 +6,18 @@ export type ReviewImage = {
   alt: string;
 };
 
-const review = (id: string, width: number, height: number): ReviewImage => ({
+const review = (id: string, width: number, height: number, alt = "수강생과 나눈 카카오톡 후기 캡처"): ReviewImage => ({
   id,
   src: `/reviews/kakao-review-${id}.jpg`,
   width,
   height,
-  alt: "수강생과 나눈 카카오톡 후기 캡처",
+  alt,
 });
 
 export const reviewImages: ReviewImage[] = [
-  review("12", 2048, 2980),
-  review("04", 2048, 3005),
-  review("14", 1080, 2316),
+  review("12", 2048, 2980, "음료와 잼 판매 소식을 전한 카카오톡 후기 캡처"),
+  review("04", 2048, 3005, "더치베이비 메뉴 반응을 전한 카카오톡 후기 캡처"),
+  review("14", 1080, 2316, "선물세트 주문과 포장 사진이 담긴 카카오톡 후기 캡처"),
   review("02", 2048, 3852),
   review("11", 2048, 2717),
   review("06", 2048, 2954),

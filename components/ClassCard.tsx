@@ -6,7 +6,11 @@ export function ClassCard({ item, compact = false }: { item: ClassItem; compact?
   return (
     <article className={`class-card ${compact ? "compact" : ""}`}>
       <a className="class-image" href={`/classes/${item.slug}`} aria-label={`${item.title} 자세히 보기`}>
-        <SmartImage src={item.image} alt={`${item.title} 대표 이미지`} />
+        <SmartImage
+          src={item.image}
+          alt={`${item.title} 대표 이미지`}
+          sizes="(max-width: 520px) calc(100vw - 28px), (max-width: 1100px) 46vw, 31vw"
+        />
         <span className={`status-badge status-${item.status}`}>{item.status}</span>
       </a>
       <div className="class-card-body">

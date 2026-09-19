@@ -1,5 +1,12 @@
 export type ClassCategory = "수제청·음료" | "브런치·디저트" | "전통차" | "견과·스프" | "앙금플라워" | "창업반" | "원데이 클래스";
 
+export type ClassPhoto = {
+  src: string;
+  width: number;
+  height: number;
+  alt: string;
+};
+
 export type ClassItem = {
   slug: string;
   title: string;
@@ -7,6 +14,7 @@ export type ClassItem = {
   status: "상시상담" | "준비중";
   summary: string;
   image: string;
+  gallery?: ClassPhoto[];
   time: string;
   price: string;
   priceAmount?: number;
@@ -30,7 +38,11 @@ export const classes: ClassItem[] = [
     category: "창업반",
     status: "상시상담",
     summary: "수제청 메뉴를 카페와 판매 현장에서 활용할 수 있도록 배우는 창업 준비 과정입니다.",
-    image: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=1200&q=86",
+    image: "/images/classes/067-fruit-syrup-bottle-circle.webp",
+    gallery: [
+      { src: "/images/classes/067-fruit-syrup-bottle-circle.webp", width: 1800, height: 1331, alt: "검은 상판에 둥글게 놓인 색색의 과일청 병" },
+      { src: "/images/classes/066-fresh-fruit-ingredients.webp", width: 1080, height: 1071, alt: "여러 종류의 생과일 재료" },
+    ],
     time: "10:00~18:00",
     price: "1,200,000원",
     priceAmount: 1200000,
@@ -45,7 +57,15 @@ export const classes: ClassItem[] = [
     category: "브런치·디저트",
     status: "상시상담",
     summary: "샌드위치와 브런치 메뉴를 카페와 판매 현장에서 활용할 수 있도록 배우는 과정입니다.",
-    image: "https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1200&q=86",
+    image: "/images/classes/043-sandwich-lunchbox-closeup.webp",
+    gallery: [
+      { src: "/images/classes/043-sandwich-lunchbox-closeup.webp", width: 1576, height: 998, alt: "샌드위치 단면과 샐러드 도시락 클로즈업" },
+      { src: "/images/classes/042-lunchbox-feast-wide.webp", width: 1575, height: 998, alt: "샌드위치와 샐러드, 브런치를 함께 담은 테이블" },
+      { src: "/images/classes/035-lunchbox-overhead.webp", width: 1800, height: 1396, alt: "샌드위치와 샐러드 도시락 여러 개를 위에서 본 모습" },
+      { src: "/images/classes/047-savory-dutch-baby-square.webp", width: 1024, height: 1024, alt: "채소와 토핑을 올린 더치베이비 브런치" },
+      { src: "/images/classes/048-fruit-dutch-baby-wide.webp", width: 1536, height: 1024, alt: "과일과 크림을 곁들인 더치베이비" },
+      { src: "/images/classes/046-shrimp-avocado-toast.webp", width: 1554, height: 1012, alt: "새우와 아보카도, 채소를 곁들인 토스트 접시" },
+    ],
     time: "10:00~18:00",
     price: "1,300,000원",
     priceAmount: 1300000,
@@ -59,7 +79,15 @@ export const classes: ClassItem[] = [
     category: "전통차",
     status: "상시상담",
     summary: "쌍화차와 전통차 메뉴를 매장에서 활용할 수 있도록 배우는 과정입니다.",
-    image: "https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=1200&q=86",
+    image: "/images/classes/095-ssanghwa-cup-hero.webp",
+    gallery: [
+      { src: "/images/classes/095-ssanghwa-cup-hero.webp", width: 1800, height: 1013, alt: "고명을 올린 쌍화차와 나무 숟가락" },
+      { src: "/images/classes/094-ssanghwa-lineup-and-cup.webp", width: 1800, height: 1127, alt: "전통차 관련 제품 여러 병과 찻잔" },
+      { src: "/images/classes/087-ssanghwa-cup-with-snacks.webp", width: 1800, height: 1013, alt: "돌잔에 담긴 쌍화차와 곁들임 간식" },
+      { src: "/images/classes/022-jujube-ginger-paste.webp", width: 1800, height: 1800, alt: "대추생강고 라벨이 보이는 용기" },
+      { src: "/images/classes/023-ginger-scallion-tea.webp", width: 1800, height: 1800, alt: "생강대파차 라벨이 보이는 병" },
+      { src: "/images/classes/024-omija-tea-bottle.webp", width: 1800, height: 1800, alt: "오미자차 라벨이 보이는 붉은 차 병" },
+    ],
     time: "10:00~17:00",
     price: "1,000,000원",
     priceAmount: 1000000,
@@ -73,7 +101,10 @@ export const classes: ClassItem[] = [
     category: "견과·스프",
     status: "상시상담",
     summary: "견과 메뉴를 판매 상품으로 활용하려는 분을 위한 실전 과정입니다.",
-    image: "https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1200&q=86",
+    image: "/images/classes/068-walnut-snacks-and-jars.webp",
+    gallery: [
+      { src: "/images/classes/068-walnut-snacks-and-jars.webp", width: 1800, height: 1013, alt: "호두 간식과 포장 용기" },
+    ],
     time: "10:00~16:30",
     price: "800,000원",
     priceAmount: 800000,
@@ -87,7 +118,14 @@ export const classes: ClassItem[] = [
     category: "견과·스프",
     status: "상시상담",
     summary: "카페와 브런치 매장에서 활용할 수 있는 스프 메뉴를 배우는 과정입니다.",
-    image: "https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=1200&q=86",
+    image: "/images/classes/059-golden-soup-white-bowl.webp",
+    gallery: [
+      { src: "/images/classes/059-golden-soup-white-bowl.webp", width: 1024, height: 1024, alt: "흰 그릇에 담긴 황금빛 스프" },
+      { src: "/images/classes/061-soup-spread-dark-table.webp", width: 1024, height: 1024, alt: "어두운 테이블 위 여러 스프와 빵" },
+      { src: "/images/classes/060-soup-spread-light-table.webp", width: 1024, height: 1024, alt: "밝은 테이블 위 여러 스프와 빵" },
+      { src: "/images/classes/030-green-soup-black-bread.webp", width: 1296, height: 864, alt: "검은 빵을 곁들인 초록색 스프" },
+      { src: "/images/classes/062-golden-soup-dark-bowl.webp", width: 1024, height: 1024, alt: "어두운 그릇에 담긴 황금빛 스프" },
+    ],
     time: "10:00~14:00",
     price: "300,000원",
     priceAmount: 300000,

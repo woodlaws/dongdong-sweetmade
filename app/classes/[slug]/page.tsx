@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { ArrowRight, Award, BadgeCheck, Check, Clock3, MapPin, PackageCheck, Phone, Sparkles, WalletCards } from "lucide-react";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { ClassCard } from "@/components/ClassCard";
+import { ClassMenuGallery } from "@/components/ClassMenuGallery";
 import { CTASection } from "@/components/CTASection";
 import { JsonLd } from "@/components/JsonLd";
 import { ReviewGallery } from "@/components/ReviewGallery";
@@ -76,6 +77,8 @@ export default async function ClassDetailPage({ params }: Props) {
           <div className="hero-actions"><a className="button button-primary" href={inquiryHref}>수업 일정 문의 <ArrowRight size={17} /></a><a className="button button-secondary" href={siteConfig.consultation.href}><Phone size={17} />{siteConfig.consultation.label}</a></div>
         </div>
       </section>
+
+      {item.gallery?.length ? <section className="section-shell class-menu-gallery-section"><SectionIntro eyebrow="CLASS MENU GALLERY" title="클래스 메뉴 갤러리" description="고객이 제공한 메뉴 사진입니다. 사진 속 모든 메뉴가 수업에 포함된다는 의미는 아닙니다." /><ClassMenuGallery photos={item.gallery} /></section> : null}
 
       <section className="soft-section section-space"><div className="section-shell two-column-info class-audience"><article><Sparkles /><h2>이런 분께 추천합니다</h2><ul>{item.recommendedFor.map((text) => <li key={text}><Check />{text}</li>)}</ul></article>{item.certification ? <article><BadgeCheck /><h2>자격 안내</h2><ul><li><Check />{item.certification}</li></ul><p className="class-confirmation-note">발급 조건과 비용은 상담 시 확인해 주세요.</p></article> : null}</div></section>
 
