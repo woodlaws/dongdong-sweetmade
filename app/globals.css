@@ -934,3 +934,31 @@ h1, h2, h3, blockquote { line-height: var(--line-heading); text-wrap: balance; w
   .kakao-review-lightbox-scroll img { width: 100%; }
   .broadcast-proof { grid-column: auto; }
 }
+
+/* Verified representative history and current business information */
+.qualification-history { display: grid; gap: 12px; }
+.qualification-history article { min-width: 0; padding: 20px 22px; display: grid; grid-template-columns: 120px 100px minmax(0, 1.4fr) minmax(0, 1fr); gap: 20px; align-items: center; border: 1px solid var(--line); border-radius: 14px; background: #fff; }
+.qualification-history time { color: var(--orange); font-weight: 900; }
+.qualification-history article > span { width: fit-content; padding: 6px 9px; border-radius: 999px; background: var(--peach); font-size: .8rem; font-weight: 850; }
+.qualification-history h3 { min-width: 0; margin: 0; font-size: 1rem; overflow-wrap: anywhere; }
+.qualification-history p { min-width: 0; margin: 0; color: var(--brown-soft); overflow-wrap: anywhere; }
+.external-lecture-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.external-lecture-grid article { min-height: 150px; padding: 28px 22px; display: flex; flex-direction: column; justify-content: space-between; border: 1px solid var(--line); border-radius: 16px; background: #fff; }
+.external-lecture-grid svg { color: var(--orange); }
+.external-lecture-grid h3 { margin: 26px 0 0; overflow-wrap: anywhere; }
+.class-audience article:only-child { grid-column: 1 / -1; }
+.class-confirmation-note { margin: 14px 0 0; color: var(--brown-soft); font-size: .9rem; }
+.footer-grid p a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+
+@media (max-width: 900px) {
+  .qualification-history article { grid-template-columns: 110px 90px minmax(0, 1fr); }
+  .qualification-history p { grid-column: 3; }
+  .external-lecture-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 600px) {
+  .qualification-history article { padding: 20px; grid-template-columns: 1fr; gap: 8px; }
+  .qualification-history p { grid-column: auto; }
+  .external-lecture-grid { grid-template-columns: 1fr; }
+  .external-lecture-grid article { min-height: 120px; }
+}

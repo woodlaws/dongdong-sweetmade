@@ -41,6 +41,9 @@ export const classReviewImages: Record<string, ReviewImage[]> = {
   "brunch-menu": ["02", "04", "13"].map((id) => reviewImages.find((item) => item.id === id)!),
   "cafe-drink-master": ["11", "12"].map((id) => reviewImages.find((item) => item.id === id)!),
   "handmade-syrup-startup": ["11", "12"].map((id) => reviewImages.find((item) => item.id === id)!),
+  "traditional-tea-class": ["17", "18", "03"].map((id) => reviewImages.find((item) => item.id === id)!),
+  "nut-master": ["14", "15"].map((id) => reviewImages.find((item) => item.id === id)!),
+  "soup-class": ["02", "05"].map((id) => reviewImages.find((item) => item.id === id)!),
 };
 
 export const consultingReviewImages = ["06", "07", "08"].map((id) => reviewImages.find((item) => item.id === id)!);

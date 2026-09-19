@@ -27,6 +27,9 @@ export function SiteFooter() {
           <p>대표자: {representative.name.value}</p>
           <p>주소: {representative.contact.address.value}</p>
           <p>연락처: {representative.contact.phone.value}</p>
+          <p>이메일: <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a></p>
+          <p>운영시간: {siteConfig.businessHours}</p>
+          <p>주차 안내: {siteConfig.parking}</p>
           <p>인스타그램: {representative.contact.instagram.value}</p>
         </div>
       </div>

@@ -5,7 +5,7 @@ import { CTASection } from "@/components/CTASection";
 import { SectionIntro } from "@/components/SectionIntro";
 import { SmartImage } from "@/components/SmartImage";
 import { ReviewGallery } from "@/components/ReviewGallery";
-import { classes } from "@/data/classes";
+import { featuredClasses } from "@/data/classes";
 import { homeReviewImages } from "@/data/reviews";
 import { representative } from "@/data/representative";
 import { siteConfig } from "@/data/site";
@@ -14,9 +14,9 @@ export const metadata: Metadata = { alternates: { canonical: "/" } };
 
 const services = [
   { title: "카페창업 컨설팅", description: "입지 분석부터 메뉴 개발, 마케팅 전략까지 1:1 맞춤 컨설팅", image: "https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=900&q=84", href: "/consulting" },
-  { title: "수제청·음료 클래스", description: "계절 과일 수제청과 카페 음료 실전 레시피", image: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=900&q=84", href: "/classes" },
-  { title: "브런치·디저트 클래스", description: "카페 인기 브런치 메뉴와 디저트 실전 제작", image: "https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=900&q=84", href: "/classes" },
-  { title: "앙금플라워 클래스", description: "특별한 날을 빛내는 앙금플라워 케이크", image: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=900&q=84", href: "/classes" },
+  { title: "수제청·음료 클래스", description: "카페와 판매 현장에 활용하는 수제청 메뉴 교육", image: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=900&q=84", href: "/classes" },
+  { title: "샌드위치·브런치 수업", description: "카페와 배달 판매를 준비하는 브런치 메뉴 교육", image: "https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=900&q=84", href: "/classes" },
+  { title: "전통차·견과·스프 수업", description: "전통찻집과 다양한 판매 메뉴를 준비하는 과정", image: "https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=900&q=84", href: "/classes" },
 ];
 
 const sketches = [
@@ -35,18 +35,18 @@ export default function HomePage() {
         <div className="home-hero-image"><SmartImage src="https://images.unsplash.com/photo-1544145945-f90425340c7e?auto=format&fit=crop&w=1600&q=88" alt="상큼한 과일을 담은 카페 음료" priority sizes="100vw" /></div>
         <div className="hero-copy">
           <div className="hero-message">
-            <p className="eyebrow">10년 경력 · 카페창업 및 메뉴개발 전문가</p>
+            <p className="eyebrow">카페와 판매 현장에 연결되는 메뉴 교육</p>
             <h1>배우는 순간,<br /><span>나만의 카페</span>가 시작됩니다</h1>
-            <p className="hero-description">수제청부터 브런치, 앙금플라워까지.<br />메뉴 개발과 창업 노하우를 한 번에 배워보세요.</p>
+            <p className="hero-description">수제청부터 브런치·전통차·견과·스프까지.<br />내 매장에서 선보일 메뉴를 배워보세요.</p>
           </div>
           <div className="hero-actions">
             <a className="button button-primary" href="/classes">클래스 일정 보기 <ArrowRight size={18} /></a>
             <a className="button button-secondary" href="/contact">창업 상담 신청 <ArrowRight size={18} /></a>
           </div>
           <div className="trust-row" aria-label="브랜드 신뢰 지표">
-            <div><BadgeCheck aria-hidden="true" /><span>KBS 생생정보통<br />2회 출연</span></div>
-            <div><UsersRound aria-hidden="true" /><span>전국·해외 공방<br />10년 운영</span></div>
-            <div><Coffee aria-hidden="true" /><span>카페 메뉴<br />실전 교육</span></div>
+            <div><BadgeCheck aria-hidden="true" /><span>KBS 생생정보통<br />방송 소개</span></div>
+            <div><UsersRound aria-hidden="true" /><span>기업·이마트·학교·관공소<br />대상 다수 출강</span></div>
+            <div><Coffee aria-hidden="true" /><span>카페·판매 메뉴<br />실전 교육</span></div>
           </div>
         </div>
       </section>
@@ -63,23 +63,22 @@ export default function HomePage() {
       <section className="representative-home section-shell">
         <div className="representative-home-photo"><SmartImage src={representative.profileImage.value} alt={`${representative.name.value} 대표 프로필`} sizes="(max-width: 800px) 100vw, 38vw" /></div>
         <div className="representative-home-copy">
-          <p className="mini-label">10 YEARS OF EXPERIENCE</p>
-          <h2>10년의 현장 경험으로<br />카페 창업의 시작을 함께합니다</h2>
+          <p className="mini-label">REPRESENTATIVE</p>
+          <h2>현장에서 활용할 메뉴로<br />창업 준비의 시작을 돕습니다</h2>
           <p className="representative-name"><strong>{representative.name.value} 대표</strong><span>{representative.title.value}</span></p>
           <p>{representative.introduction.value}</p>
           <div className="representative-highlights">
             {representative.careerHighlights.slice(0, 3).map((item) => <span key={item.value}><BadgeCheck />{item.value}</span>)}
-            <span><BadgeCheck />정부·기관 지원사업 수행 경험</span>
           </div>
           <blockquote>“배운 메뉴가 실제 상품이 되고,<br />자신만의 사업으로 이어질 때까지 함께하겠습니다.”</blockquote>
-          <div className="representative-actions"><a className="button button-primary" href="/about">윤인동 대표 소개 <ArrowRight size={17} /></a><a className="button button-secondary" href="/contact">창업 상담 신청 <ArrowRight size={17} /></a></div>
+          <div className="representative-actions"><a className="button button-primary" href="/about">대표 소개 자세히 보기 <ArrowRight size={17} /></a><a className="button button-secondary" href="/contact">창업 상담 신청 <ArrowRight size={17} /></a></div>
         </div>
       </section>
 
-      <section className="section-shell section-space">
-        <SectionIntro eyebrow="NOW OPEN" title="지금 모집 중인 클래스" description="배운 내용을 매장에서 바로 활용할 수 있는 실전 중심 과정입니다." />
-        <div className="class-grid featured">{classes.slice(0, 3).map((item) => <ClassCard item={item} key={item.slug} compact />)}</div>
-        <div className="section-more"><a href="/classes">전체 클래스 보기 <ArrowRight size={16} /></a></div>
+      <section className="section-shell section-space" id="featured-classes">
+        <SectionIntro eyebrow="FEATURED CLASS" title="대표 클래스" description="수강료와 수업 시간을 확인하고, 구체적인 일정은 문의해 주세요." />
+        <div className="class-grid featured">{featuredClasses.map((item) => <ClassCard item={item} key={item.slug} compact />)}</div>
+        <div className="section-more"><a href="/contact?type=클래스%20일정%20문의">수업 일정 문의 <ArrowRight size={16} /></a></div>
       </section>
 
       <section className="reviews-section" id="reviews">

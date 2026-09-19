@@ -1,4 +1,4 @@
-import { ArrowRight, CalendarDays, Clock3 } from "lucide-react";
+import { ArrowRight, BadgeCheck, Clock3 } from "lucide-react";
 import type { ClassItem } from "@/data/classes";
 import { SmartImage } from "./SmartImage";
 
@@ -13,7 +13,7 @@ export function ClassCard({ item, compact = false }: { item: ClassItem; compact?
         <span className="category-label">{item.category}</span>
         <h3><a href={`/classes/${item.slug}`}>{item.title}</a></h3>
         <p>{item.summary}</p>
-        {!compact && <div className="class-meta"><span><CalendarDays size={15} />{item.format}</span><span><Clock3 size={15} />{item.duration}</span></div>}
+        <div className="class-meta"><span><Clock3 size={15} />{item.time}</span>{item.certification ? <span><BadgeCheck size={15} />{item.certification}</span> : null}</div>
         <div className="class-card-footer"><strong>{item.price}</strong><a href={`/classes/${item.slug}`}>상세 보기 <ArrowRight size={15} /></a></div>
       </div>
     </article>

@@ -6,19 +6,21 @@ const phoneHref = `tel:${phone.replaceAll("-", "")}`;
 export const siteConfig = {
   name: "동동이 스윗메이드",
   shortName: "동동이 스윗메이드",
-  description: "수제청·음료, 브런치·디저트, 앙금플라워부터 카페 창업까지 실전에 연결되는 교육 브랜드",
+  description: "수제청, 샌드위치와 브런치, 전통차, 견과, 스프를 카페와 판매 현장에 연결하는 메뉴 교육 브랜드",
   url: "https://dongdong-sweetmade.vercel.app",
   blogUrl: "https://blog.naver.com/idong22",
   instagramUrl: "https://www.instagram.com/dongdongesweetmade/",
+  classVideoUrl: "https://m.site.naver.com/1Uddq",
   phone,
   consultation: {
     label: "전화 상담하기",
     shortLabel: "전화 상담",
     href: phoneHref,
   },
-  email: "추후 입력",
+  email: representative.contact.email.value,
   address: representative.contact.address.value,
   businessHours: representative.contact.businessHours.value,
+  parking: representative.contact.parking.value,
   owner: representative.name.value,
   businessNumber: "추후 입력",
 } as const;

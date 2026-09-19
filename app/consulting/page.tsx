@@ -51,7 +51,7 @@ export default function ConsultingPage() {
       </section>
 
       <section className="institution-band section-shell consulting-institution">
-        <div><p className="mini-label">INSTITUTION & BUSINESS</p><h2>기관·기업 맞춤 교육과<br />지원사업도 함께합니다</h2><p>윤인동 대표의 메뉴 개발·공방 운영 경험을 바탕으로 기관의 목적과 참여 대상에 맞는 교육과 컨설팅을 설계합니다.</p><a className="button button-primary" href="/contact?type=기관·기업%20교육">기관·기업 교육 문의 <Building2 size={17} /></a></div>
+        <div><p className="mini-label">INSTITUTION & BUSINESS</p><h2>기관·기업 대상<br />메뉴 교육을 진행합니다</h2><p>기업·이마트·학교·관공소 출강 경험을 바탕으로 기관의 목적과 참여 대상에 맞는 메뉴 교육을 안내합니다.</p><a className="button button-primary" href="/contact?type=기관·기업%20교육">기관·기업 교육 문의 <Building2 size={17} /></a></div>
         <div className="institution-programs">{representative.consultingAreas.map((item) => <span key={item.value}><BadgeCheck />{item.value}</span>)}</div>
       </section>
 

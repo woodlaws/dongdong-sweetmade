@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: { default: "동동이 스윗메이드 | 카페창업·디저트 교육", template: "%s | 동동이 스윗메이드" },
   description: siteConfig.description,
-  keywords: ["카페 창업 교육", "카페 창업 컨설팅", "수제청 클래스", "브런치 메뉴 교육", "앙금플라워 클래스"],
+  keywords: ["카페 창업 교육", "수제청 창업반", "샌드위치 브런치 수업", "전통차 클래스", "견과 마스터반", "스프 수업"],
   alternates: { canonical: "/" },
   openGraph: { title: "동동이 스윗메이드", description: siteConfig.description, type: "website", url: "/", locale: "ko_KR", images: [{ url: "/og.png", width: 1732, height: 909, alt: "동동이 스윗메이드 카페창업·디저트 교육" }] },
   twitter: { card: "summary_large_image", title: "동동이 스윗메이드", description: siteConfig.description, images: ["/og.png"] },
@@ -27,6 +27,9 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     name: siteConfig.name,
     url: siteConfig.url,
     description: siteConfig.description,
+    email: siteConfig.email,
+    telephone: siteConfig.phone,
+    address: siteConfig.address,
     sameAs: [siteConfig.blogUrl, siteConfig.instagramUrl],
   };
   const person = {
@@ -37,7 +40,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     jobTitle: representative.jobTitle.value,
     image: `${siteConfig.url}${representative.profileImage.value}`,
     worksFor: { "@id": `${siteConfig.url}/#organization`, name: siteConfig.name },
-    knowsAbout: ["카페 창업 컨설팅", "카페 메뉴 개발", "수제청", "수제잼", "카페 음료", "브런치", "베이킹", "디저트", "앙금플라워"],
+    knowsAbout: ["수제청", "샌드위치", "브런치", "쌍화차", "전통차", "견과", "스프", "카페 메뉴 교육"],
     sameAs: [siteConfig.instagramUrl],
   };
   return (

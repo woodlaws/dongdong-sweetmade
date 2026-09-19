@@ -2,12 +2,14 @@
 
 import { FormEvent, useState } from "react";
 import { CheckCircle2, Send } from "lucide-react";
+import { classes } from "@/data/classes";
 
 type Errors = Record<string, string>;
 
-const inquiryTypes = ["카페창업 컨설팅", "클래스 일정 문의", "기관·기업 교육", "기관·기업 출강", "지원사업 협업", "메뉴 개발 프로젝트", "수제청 클래스", "브런치·디저트 클래스", "앙금플라워 클래스", "기타 문의"] as const;
+const inquiryTypes = ["카페창업 컨설팅", "클래스 일정 문의", "기관·기업 교육", "기관·기업 출강", "메뉴 개발 프로젝트", "기타 문의"] as const;
+const classOptions = classes.map((item) => item.title);
 
-export function ContactForm({ initialType }: { initialType?: string }) {
+export function ContactForm({ initialType, initialClass }: { initialType?: string; initialClass?: string }) {
   const [status, setStatus] = useState<"idle" | "success">("idle");
   const [errors, setErrors] = useState<Errors>({});
   const [inquiryType, setInquiryType] = useState<string>(() => initialType && inquiryTypes.includes(initialType as (typeof inquiryTypes)[number]) ? initialType : inquiryTypes[0]);
@@ -50,7 +52,7 @@ export function ContactForm({ initialType }: { initialType?: string }) {
         <label>연락처 <b>*</b><input name="phone" inputMode="tel" placeholder="010-0000-0000" autoComplete="tel" aria-describedby="phone-error" />{errors.phone && <small id="phone-error">{errors.phone}</small>}</label>
         <label>이메일<input name="email" type="email" autoComplete="email" aria-describedby="email-error" />{errors.email && <small id="email-error">{errors.email}</small>}</label>
         <label>문의 유형 <b>*</b><select name="type" value={inquiryType} onChange={(event) => setInquiryType(event.target.value)}>{inquiryTypes.map((type) => <option key={type}>{type}</option>)}</select></label>
-        <label>관심 클래스<select name="class" defaultValue=""><option value="">선택해 주세요</option><option>수제청 창업반</option><option>카페 음료 실전 클래스</option><option>브런치 메뉴반</option><option>앙금플라워 기초 클래스</option></select></label>
+        <label>관심 클래스<select name="class" defaultValue={initialClass && classOptions.includes(initialClass) ? initialClass : ""}><option value="">선택해 주세요</option>{classOptions.map((title) => <option key={title}>{title}</option>)}</select></label>
         <label>창업 예정 여부<select name="startup" defaultValue="준비 중"><option>준비 중</option><option>계획 있음</option><option>이미 운영 중</option><option>해당 없음</option></select></label>
       </div>
       <label>문의 내용 <b>*</b><textarea name="message" rows={7} placeholder="현재 상황과 궁금한 내용을 남겨주세요." aria-describedby="message-error" />{errors.message && <small id="message-error">{errors.message}</small>}</label>
