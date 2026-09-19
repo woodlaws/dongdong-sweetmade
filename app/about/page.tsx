@@ -5,6 +5,7 @@ import { CTASection } from "@/components/CTASection";
 import { SectionIntro } from "@/components/SectionIntro";
 import { SmartImage } from "@/components/SmartImage";
 import { representative } from "@/data/representative";
+import { broadcastImage } from "@/data/reviews";
 
 export const metadata: Metadata = {
   title: "윤인동 대표·브랜드 소개",
@@ -46,7 +47,7 @@ export default function AboutPage() {
       <section className="section-shell section-space">
         <SectionIntro eyebrow="③ MEDIA & PUBLIC ACTIVITY" title="방송과 언론이 주목한 실전 전문성" />
         <div className="media-activity-grid">
-          <article><Radio /><span>방송 출연</span><h3>{representative.broadcastAppearances[0].title}</h3><p>{representative.broadcastAppearances[0].description}</p></article>
+          <article className="broadcast-proof"><div className="broadcast-proof-image"><SmartImage src={broadcastImage.src} alt={broadcastImage.alt} sizes="(max-width: 800px) 100vw, 50vw" /></div><Radio /><span>방송 화면 자료</span><h3>KBS 생생정보통 방송 화면</h3><p>방송 화면에 소개된 윤인동 대표 자료입니다.</p></article>
           <article><Newspaper /><span>언론 인터뷰 · {representative.mediaCoverage[0].outlet}</span><h3>{representative.mediaCoverage[0].title}</h3><p>{representative.mediaCoverage[0].date}</p><a href={representative.mediaCoverage[0].url} target="_blank" rel="noreferrer">기사 원문 보기 <ArrowRight size={15} /></a></article>
           <article><Award /><span>교육·연구</span><h3>여주대학교 연구위원 역임</h3></article>
           <article><BriefcaseBusiness /><span>기업 활동</span><h3>주식회사 여주한과 법인업체 이사</h3></article>

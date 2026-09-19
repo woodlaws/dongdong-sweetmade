@@ -7,8 +7,9 @@ import { CTASection } from "@/components/CTASection";
 import { JsonLd } from "@/components/JsonLd";
 import { SectionIntro } from "@/components/SectionIntro";
 import { SmartImage } from "@/components/SmartImage";
+import { ReviewGallery } from "@/components/ReviewGallery";
 import { classes, getClassBySlug } from "@/data/classes";
-import { reviews } from "@/data/reviews";
+import { classReviewImages } from "@/data/reviews";
 import { siteConfig } from "@/data/site";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -33,6 +34,7 @@ export default async function ClassDetailPage({ params }: Props) {
   const item = getClassBySlug(slug);
   if (!item) notFound();
   const related = classes.filter((candidate) => candidate.slug !== item.slug).slice(0, 3);
+  const relatedReviews = classReviewImages[item.slug] ?? [];
   const schema = {
     "@context": "https://schema.org",
     "@type": "Course",
@@ -61,10 +63,9 @@ export default async function ClassDetailPage({ params }: Props) {
 
       <section className="section-shell class-info-strip"><div><PackageCheck /><span>준비물</span><strong>{item.supplies}</strong></div><div><Clock3 /><span>수업 기간</span><strong>{item.duration}</strong></div><div><WalletCards /><span>수강료</span><strong>{item.price}</strong></div><div><MapPin /><span>장소</span><strong>{item.location}</strong></div></section>
 
-      <section className="section-shell section-space"><SectionIntro eyebrow="STUDENT REVIEW" title="먼저 배운 수강생의 이야기" /><div className="review-grid">{reviews.filter((review) => review.category === item.category || item.category === "창업반" && review.category === "창업반").slice(0, 2).map((review) => <article className="review-card" key={review.id}><p>{review.quote}</p><small>{review.change}</small><strong>{review.author}</strong></article>)}</div></section>
-
       <section className="section-shell section-space faq-section"><SectionIntro eyebrow="FAQ" title="자주 묻는 질문" />{item.faq.map((faq) => <details key={faq.question}><summary>{faq.question}</summary><p>{faq.answer}</p></details>)}</section>
       <section className="section-shell section-space"><SectionIntro title="함께 살펴보면 좋은 클래스" /><div className="class-grid">{related.map((candidate) => <ClassCard item={candidate} key={candidate.slug} compact />)}</div></section>
+      {relatedReviews.length ? <section className="section-shell related-review-section"><SectionIntro eyebrow="KAKAO REVIEW" title="관련 메뉴 카톡 후기" /><ReviewGallery images={relatedReviews} variant="related" /></section> : null}
       <CTASection title={`${item.title}, 지금 상담해 보세요`} description="수업 일정과 준비 사항을 확인하고 자신에게 맞는 과정인지 안내받을 수 있습니다." />
     </main>
   );

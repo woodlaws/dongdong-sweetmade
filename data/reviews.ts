@@ -1,38 +1,53 @@
-export type ReviewItem = {
-  id: number;
-  category: string;
-  quote: string;
-  author: string;
-  change: string;
+export type ReviewImage = {
+  id: string;
+  src: string;
+  width: number;
+  height: number;
+  alt: string;
 };
 
-export const reviews: ReviewItem[] = [
-  {
-    id: 1,
-    category: "창업반",
-    quote: "수제청 창업반 수강 후 막연했던 메뉴 구성이 정리됐어요. 준비해야 할 순서를 알게 된 것이 가장 큰 변화였습니다.",
-    author: "김** 수강생",
-    change: "수강 전: 메뉴 방향이 막연함 → 수강 후: 판매 메뉴와 준비 순서 정리",
-  },
-  {
-    id: 2,
-    category: "브런치·디저트",
-    quote: "레시피뿐 아니라 매장에서 빠르게 제공하는 방법까지 알려주셔서 실제 운영에 도움이 됐습니다.",
-    author: "이** 카페 운영자",
-    change: "수강 전: 제공 시간이 길었음 → 수강 후: 작업 동선과 조리 순서 개선",
-  },
-  {
-    id: 3,
-    category: "앙금플라워",
-    quote: "취미로 시작했는데 주문 케이크를 만들 수 있을 만큼 기본기를 차근차근 배웠어요.",
-    author: "박** 수강생",
-    change: "수강 전: 꽃 짜기 경험 없음 → 수강 후: 기본 디자인 케이크 완성",
-  },
-  {
-    id: 4,
-    category: "수제청·음료",
-    quote: "맛의 기준을 숫자와 과정으로 이해하니 계절 과일이 바뀌어도 레시피를 응용할 수 있게 됐습니다.",
-    author: "최** 예비 창업자",
-    change: "수강 전: 레시피 의존 → 수강 후: 당도와 배합 원리 이해",
-  },
+const review = (id: string, width: number, height: number): ReviewImage => ({
+  id,
+  src: `/reviews/kakao-review-${id}.jpg`,
+  width,
+  height,
+  alt: "수강생과 나눈 카카오톡 후기 캡처",
+});
+
+export const reviewImages: ReviewImage[] = [
+  review("12", 2048, 2980),
+  review("04", 2048, 3005),
+  review("14", 1080, 2316),
+  review("02", 2048, 3852),
+  review("11", 2048, 2717),
+  review("06", 2048, 2954),
+  review("base", 2048, 3861),
+  review("01", 2048, 2880),
+  review("03", 2048, 2956),
+  review("05", 2048, 3269),
+  review("07", 2048, 2865),
+  review("08", 2048, 3039),
+  review("09", 2048, 3119),
+  review("13", 2444, 2048),
+  review("15", 1080, 2316),
+  review("16", 1080, 1935),
+  review("17", 1080, 1881),
+  review("18", 1080, 917),
 ];
+
+export const homeReviewImages = ["12", "04", "14"].map((id) => reviewImages.find((item) => item.id === id)!);
+
+export const classReviewImages: Record<string, ReviewImage[]> = {
+  "brunch-menu": ["02", "04", "13"].map((id) => reviewImages.find((item) => item.id === id)!),
+  "cafe-drink-master": ["11", "12"].map((id) => reviewImages.find((item) => item.id === id)!),
+  "handmade-syrup-startup": ["11", "12"].map((id) => reviewImages.find((item) => item.id === id)!),
+};
+
+export const consultingReviewImages = ["06", "07", "08"].map((id) => reviewImages.find((item) => item.id === id)!);
+
+export const broadcastImage = {
+  src: "/reviews/broadcast-10.jpg",
+  width: 2789,
+  height: 2048,
+  alt: "윤인동 대표가 소개된 방송 화면 자료",
+};

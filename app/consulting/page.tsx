@@ -6,6 +6,8 @@ import { JsonLd } from "@/components/JsonLd";
 import { PageHero } from "@/components/PageHero";
 import { SectionIntro } from "@/components/SectionIntro";
 import { SmartImage } from "@/components/SmartImage";
+import { ReviewGallery } from "@/components/ReviewGallery";
+import { consultingReviewImages } from "@/data/reviews";
 import { representative } from "@/data/representative";
 import { consultingFaqs, siteConfig } from "@/data/site";
 
@@ -54,6 +56,7 @@ export default function ConsultingPage() {
       </section>
 
       <section className="section-shell section-space faq-section"><SectionIntro eyebrow="FAQ" title="자주 묻는 질문" />{consultingFaqs.map((faq) => <details key={faq.question}><summary>{faq.question}</summary><p>{faq.answer}</p></details>)}</section>
+      <section className="section-shell related-review-section"><SectionIntro eyebrow="KAKAO REVIEW" title="창업 준비와 운영 중 전해온 카톡" /><ReviewGallery images={consultingReviewImages} variant="related" /></section>
       <CTASection title="지금 상황부터 편하게 알려주세요" description="필요한 컨설팅 범위와 다음 단계를 차분히 안내해 드립니다." />
       <a className="sr-only" href={siteConfig.consultation.href}>{siteConfig.consultation.label}</a>
     </main>

@@ -1,0 +1,4 @@
+node_modules/
+.next/
+qa-*-local-*.png
+qa-*-prod-*.png

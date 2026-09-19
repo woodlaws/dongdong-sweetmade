@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
-import { ArrowRight, BadgeCheck, Coffee, Phone, Sprout, Star, Store, UsersRound } from "lucide-react";
+import { ArrowRight, BadgeCheck, Coffee, Phone, Sprout, Store, UsersRound } from "lucide-react";
 import { ClassCard } from "@/components/ClassCard";
 import { CTASection } from "@/components/CTASection";
 import { SectionIntro } from "@/components/SectionIntro";
 import { SmartImage } from "@/components/SmartImage";
+import { ReviewGallery } from "@/components/ReviewGallery";
 import { classes } from "@/data/classes";
-import { reviews } from "@/data/reviews";
+import { homeReviewImages } from "@/data/reviews";
 import { representative } from "@/data/representative";
 import { siteConfig } from "@/data/site";
 
@@ -81,13 +82,11 @@ export default function HomePage() {
         <div className="section-more"><a href="/classes">전체 클래스 보기 <ArrowRight size={16} /></a></div>
       </section>
 
-      <section className="reviews-section">
+      <section className="reviews-section" id="reviews">
         <div className="section-shell">
-          <SectionIntro eyebrow="REAL REVIEW" title="수강생의 변화가 증명합니다" description="확인되지 않은 수치를 꾸미지 않고, 배움의 실제 변화를 담았습니다." />
-          <div className="review-grid">
-            {reviews.slice(0, 3).map((review) => <article className="review-card" key={review.id}><Star fill="currentColor" size={18} /><p>{review.quote}</p><small>{review.change}</small><strong>{review.author}</strong></article>)}
-          </div>
-          <div className="section-more"><a href="/reviews">수강후기 더 보기 <ArrowRight size={16} /></a></div>
+          <SectionIntro eyebrow="REAL REVIEW" title="수강생들이 보내주신 진짜 카톡 후기" />
+          <ReviewGallery images={homeReviewImages} variant="home" />
+          <div className="section-more"><a href="/reviews">카톡 후기 전체 보기 <ArrowRight size={16} /></a></div>
         </div>
       </section>
 
