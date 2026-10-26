@@ -3,6 +3,7 @@
 import { FormEvent, useState } from "react";
 import { CheckCircle2, Send } from "lucide-react";
 import { classes } from "@/data/classes";
+import { siteConfig } from "@/data/site";
 
 type Errors = Record<string, string>;
 
@@ -30,7 +31,9 @@ export function ContactForm({ initialType, initialClass }: { initialType?: strin
     setErrors(nextErrors);
     if (Object.keys(nextErrors).length) return;
 
-    // TODO: 실제 운영 시 이 지점에서 문의 API 또는 폼 서비스와 연동하세요.
+    const subject = `[${String(form.get("type"))}] ${name}님 상담 문의`;
+    const body = [`이름: ${name}`, `연락처: ${phone}`, `이메일: ${email || "미입력"}`, `문의 유형: ${String(form.get("type"))}`, `관심 클래스: ${String(form.get("class")) || "미선택"}`, `창업 예정 여부: ${String(form.get("startup"))}`, "", message].join("\n");
+    window.location.href = `mailto:${siteConfig.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     setStatus("success");
   }
 
@@ -38,8 +41,9 @@ export function ContactForm({ initialType, initialClass }: { initialType?: strin
     return (
       <div className="form-success" role="status">
         <CheckCircle2 size={44} aria-hidden="true" />
-        <h2>문의 내용이 확인되었습니다.</h2>
-        <p>현재는 프론트엔드 데모 상태입니다. 실제 운영 전 문의 수신 API를 연결해 주세요.</p>
+        <h2>이메일 앱에서 전송을 마쳐 주세요</h2>
+        <p>작성한 내용을 이메일 앱으로 전달했습니다. 이메일 앱에서 보내기를 눌러야 문의가 접수됩니다. 앱이 열리지 않았다면 아래 연락처로 문의해 주세요.</p>
+        <p><a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a><br /><a href={siteConfig.consultation.href}>전화 상담 {siteConfig.phone}</a></p>
         <button type="button" className="button button-secondary" onClick={() => setStatus("idle")}>다른 문의 작성하기</button>
       </div>
     );
@@ -47,6 +51,7 @@ export function ContactForm({ initialType, initialClass }: { initialType?: strin
 
   return (
     <form className="contact-form" onSubmit={submit} noValidate>
+      <div className="inquiry-notice"><strong>어떤 배움을 준비하고 계신가요?</strong><p>내용을 작성하면 이메일 앱이 열립니다. 앱에서 전송을 완료해 주세요. 빠른 일정 확인은 <a href={siteConfig.consultation.href}>전화 상담</a>으로도 가능합니다.</p></div>
       <div className="form-grid">
         <label>이름 <b>*</b><input name="name" autoComplete="name" aria-describedby="name-error" />{errors.name && <small id="name-error">{errors.name}</small>}</label>
         <label>연락처 <b>*</b><input name="phone" inputMode="tel" placeholder="010-0000-0000" autoComplete="tel" aria-describedby="phone-error" />{errors.phone && <small id="phone-error">{errors.phone}</small>}</label>
@@ -58,8 +63,8 @@ export function ContactForm({ initialType, initialClass }: { initialType?: strin
       <label>문의 내용 <b>*</b><textarea name="message" rows={7} placeholder="현재 상황과 궁금한 내용을 남겨주세요." aria-describedby="message-error" />{errors.message && <small id="message-error">{errors.message}</small>}</label>
       <label className="check-label"><input name="privacy" type="checkbox" /> <span>문의 답변을 위한 개인정보 수집 및 이용에 동의합니다.</span></label>
       {errors.privacy && <small className="privacy-error">{errors.privacy}</small>}
-      <button className="button button-primary submit-button" type="submit"><Send size={17} aria-hidden="true" /> 문의 보내기</button>
-      <p className="demo-note">현재 화면은 데모이며 실제 전송되지 않습니다.</p>
+      <button className="button button-primary submit-button" type="submit"><Send size={17} aria-hidden="true" /> 이메일 앱에서 문의 보내기</button>
+      <p className="demo-note">작성 내용은 이 홈페이지에 저장되지 않습니다. 기기에 이메일 앱 설정이 필요합니다.</p>
     </form>
   );
 }
