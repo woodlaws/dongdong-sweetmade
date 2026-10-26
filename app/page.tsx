@@ -19,13 +19,13 @@ export default function HomePage() {
         <div className="home-hero-image"><SmartImage src="/images/classes/042-lunchbox-feast-wide.webp" alt="샌드위치와 샐러드, 브런치를 함께 담은 테이블" priority sizes="(max-width: 800px) calc(100vw - 28px), 58vw" /></div>
         <div className="hero-copy">
           <div className="hero-message">
-            <p className="eyebrow">카페와 판매 현장에 연결되는 메뉴 교육</p>
-            <h1>배우는 순간,<br /><span>나만의 카페</span>가 시작됩니다</h1>
-            <p className="hero-description">수제청부터 브런치·전통차·견과·스프까지.<br />내 매장에서 선보일 메뉴를 배워보세요.</p>
+            <p className="eyebrow">DONGDONG SWEETMADE · 이천 메뉴 교육 공방</p>
+            <h1>좋아하는 메뉴가<br /><span>나만의 가게</span>가<br />되는 시작.</h1>
+            <p className="hero-description">수제청 한 병부터 든든한 브런치 한 접시까지.<br />내 손으로 만들고, 내 매장에서 선보이는 배움.</p>
           </div>
           <div className="hero-actions">
-            <a className="button button-primary" href="/classes">클래스 일정 보기 <ArrowRight size={18} /></a>
-            <a className="button button-secondary" href="/contact">창업 상담 신청 <ArrowRight size={18} /></a>
+            <a className="button button-primary" href="#featured-classes">나에게 맞는 클래스 찾기 <ArrowRight size={18} /></a>
+            <a className="button button-secondary" href="/consulting">카페 창업이 처음이라면 <ArrowRight size={18} /></a>
           </div>
           <div className="trust-row" aria-label="브랜드 신뢰 지표">
             <div><BadgeCheck aria-hidden="true" /><span>KBS 생생정보통<br />방송 소개</span></div>
@@ -35,10 +35,22 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section className="start-paths section-shell" aria-labelledby="start-paths-title">
+        <div className="start-paths-heading"><p className="mini-label">YOUR NEXT STEP</p><h2 id="start-paths-title">어떤 시작을<br />준비하고 있나요?</h2></div>
+        <a href="/classes"><span className="path-number">01</span><div><h3>내 가게의 시그니처 메뉴</h3><p>과정별 수강료와 수업 내용 살펴보기</p></div><ArrowRight aria-hidden="true" /></a>
+        <a href="/consulting"><span className="path-number">02</span><div><h3>나만의 카페 창업</h3><p>콘셉트부터 메뉴까지 상담하기</p></div><ArrowRight aria-hidden="true" /></a>
+        <a href="/contact?type=기관·기업%20교육"><span className="path-number">03</span><div><h3>함께하는 단체 교육</h3><p>기관·기업에 맞는 프로그램 문의하기</p></div><ArrowRight aria-hidden="true" /></a>
+      </section>
+
       <section className="section-shell section-space" id="featured-classes">
-        <SectionIntro eyebrow="FEATURED CLASS" title="대표 클래스" description="수강료와 수업 시간을 확인하고, 구체적인 일정은 문의해 주세요." />
+        <div className="home-section-heading"><SectionIntro align="left" eyebrow="MADE BY YOU" title="배워서, 내 메뉴로." description="무엇을 만들고 싶은가요? 실제 수업 메뉴와 수강료를 먼저 만나보세요." /><a className="all-classes-link" href="/classes">전체 클래스 보기 <ArrowRight size={18} /></a></div>
         <div className="class-grid featured">{featuredClasses.map((item) => <ClassCard item={item} key={item.slug} compact />)}</div>
         <div className="section-more"><a href="/contact?type=클래스%20일정%20문의">수업 일정 문의 <ArrowRight size={16} /></a></div>
+      </section>
+
+      <section className="learning-journey section-shell" aria-labelledby="journey-title">
+        <div><p className="mini-label">FROM CLASS TO YOUR CAFE</p><h2 id="journey-title">첫 수업 전부터<br />방향을 함께 찾아요.</h2><p>창업 준비 중이어도, 이미 매장을 운영하고 있어도.<br />지금 필요한 배움부터 시작하세요.</p><a href="/contact" className="journey-link">내 상황에 맞는 과정 문의 <ArrowRight size={18} /></a></div>
+        <ol><li><span>01</span><div><h3>관심 메뉴를 골라요</h3><p>클래스별 메뉴와 수강료, 수업 시간을 비교해 보세요.</p></div></li><li><span>02</span><div><h3>일정과 궁금한 점을 확인해요</h3><p>희망 과정과 현재 상황을 알려주시면 상담을 통해 안내합니다.</p></div></li><li><span>03</span><div><h3>내 매장에서 선보일 메뉴를 배워요</h3><p>카페와 판매 현장에 활용할 메뉴를 직접 만들어 보세요.</p></div></li></ol>
       </section>
 
       <section className="reviews-section" id="reviews">
